@@ -5,6 +5,10 @@
   "description": "A helper that aims to easily manage multiple secrets for your tokens.",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "author": {
+    "name": "Guillaume Quittet",
+    "email": "guillaume.quittet@gmail.com"
+  },
   "scripts": {
     "clean": "rimraf lib/",
     "build": "tsc",
