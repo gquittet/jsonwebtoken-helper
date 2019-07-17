@@ -1,6 +1,6 @@
 {
   "name": "jsonwebtoken-helper",
-  "version": "0.1.0",
+  "version": "v0.1.0",
   "license": "MIT",
   "description": "A helper that aims to easily manage multiple secrets for your tokens.",
   "main": "lib/index.js",
