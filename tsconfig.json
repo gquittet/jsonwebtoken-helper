@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "moduleResolution": "node",
+    "declaration": true,
+    "sourceMap": true,
+    "module": "commonjs",
+    "outDir": "lib/",
+    "strict": true,
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "removeComments": true,
+    "noImplicitAny": true,
+    "allowSyntheticDefaultImports": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "forceConsistentCasingInFileNames": true,
+  },
+  "files": [
+    "./src/index.ts"
+  ]
+}

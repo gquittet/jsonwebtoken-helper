@@ -1,0 +1,53 @@
+{
+  "name": "jsonwebtoken-helper",
+  "version": "0.1.0",
+  "license": "MIT",
+  "description": "A helper that aims to easily manage multiple secrets for your tokens.",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "clean": "rimraf lib/",
+    "build": "tsc",
+    "dev": "nodemon",
+    "watch": "tsc -w",
+    "lint": "tslint -c tslint.json src/**/*.ts",
+    "prepublishOnly": "npm run clean && npm run lint && npm run build",
+    "start": "ts-node src/index.ts"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^8.3.2",
+    "@types/node": "^12.6.3",
+    "nodemon": "^1.19.1",
+    "rimraf": "^2.6.3",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.18.0",
+    "tslint-config-airbnb": "^5.11.1",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "jsonwebtoken": "^8.5.1"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "keywords": [
+    "jwt",
+    "token",
+    "keyid",
+    "kid",
+    "secret",
+    "secrets",
+    "multiple",
+    "jsonwebtoken",
+    "typescript"
+  ],
+  "homepage": "https://github.com/gquittet/jsonwebtoken-helper#readme",
+  "bugs": {
+    "url": "https://github.com/gquittet/jsonwebtoken-helper/issues",
+    "email": "guillaume.quittet@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:gquittet/jsonwebtoken-helper.git"
+  }
+}

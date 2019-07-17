@@ -1,0 +1,5 @@
+JWT_SECRET_SEPARATOR='######'
+JWT_SECRET_TOKEN='oldsecret######ceciestuntest######asupersecret'
+JWT_KEY_IDS='######keyidxyz######fjkal79r879sdf'
+JWT_ISSUER='JohnDoeCorp'
+JWT_DEFAULT_EXPIRES=60
