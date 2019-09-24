@@ -28,7 +28,6 @@ enum AuthorizedAlgorithms {
  * https://tools.ietf.org/id/draft-ietf-oauth-jwt-bcp-02.html
  */
 class JwtHelper {
-
   private static _HEADER: jwt.SignOptions[];
   private static _SECRET: any;
   private static _HAS_PARSED: boolean;
@@ -47,14 +46,11 @@ class JwtHelper {
       JWT_SECRET_TOKEN,
     } = process.env;
 
-    if (
-      !JWT_KEY_IDS ||
-      !JWT_ISSUER ||
-      !JWT_SECRET_SEPARATOR ||
-      !JWT_SECRET_TOKEN
-    ) {
-      throw new Error('You must be provide these environement variables: ' +
-        'JWT_SECRET_SEPARATOR, JWT_SECRET_TOKEN, JWT_KEY_IDS, JWT_ISSUER');
+    if (!JWT_KEY_IDS || !JWT_ISSUER || !JWT_SECRET_SEPARATOR || !JWT_SECRET_TOKEN) {
+      throw new Error(
+        'You must be provide these environement variables: ' +
+          'JWT_SECRET_SEPARATOR, JWT_SECRET_TOKEN, JWT_KEY_IDS, JWT_ISSUER',
+      );
     }
 
     /* Add an expire value if JWT_DEFAULT_EXPIRES is set. jsonwebtoken use 'ms'
@@ -112,11 +108,7 @@ class JwtHelper {
     this.init();
     const keys = Object.keys(this._SECRET);
     const lastKey = keys[keys.length - 1];
-    return jwt.sign(
-      payload,
-      this._SECRET[lastKey || this.NO_KEY_ID],
-      this.getHeader(lastKey),
-    );
+    return jwt.sign(payload, this._SECRET[lastKey || this.NO_KEY_ID], this.getHeader(lastKey));
   }
 
   /**
@@ -129,10 +121,7 @@ class JwtHelper {
     const payloadKeyId = this.getKeyId(payload);
     const options = this.getHeader(payloadKeyId) || {};
     const opts = { ...options, complete: true };
-    return jwt.verify(payload, this._SECRET[payloadKeyId], opts, (
-      error: Error,
-      decrypted: any,
-    ) => {
+    return jwt.verify(payload, this._SECRET[payloadKeyId], opts, (error: Error, decrypted: any) => {
       if (error) {
         throw error;
       }
@@ -145,9 +134,7 @@ class JwtHelper {
         if (!header.kid) {
           return toReturn;
         }
-        throw new jwt.JsonWebTokenError(
-          `jwt keyid invalid. expected: ${opts.keyid}`,
-        );
+        throw new jwt.JsonWebTokenError(`jwt keyid invalid. expected: ${opts.keyid}`);
       }
       return undefined;
     });
